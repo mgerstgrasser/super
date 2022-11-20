@@ -1,0 +1,11 @@
+py_modules:
+    - ./suPER
+
+excludes:
+    - .git/objects
+    - /checkpoints
+    - ray_results
+    - __pycache__
+
+env_vars:
+    # WANDB_API_KEY: 123

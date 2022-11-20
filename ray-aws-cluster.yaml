@@ -1,0 +1,58 @@
+# An unique identifier for the head node and workers of this cluster.
+cluster_name: rayz1d
+
+# Cloud-provider specific configuration.
+provider:
+    type: aws
+    region: us-east-1
+    cache_stopped_nodes: True
+
+max_workers: 30
+
+setup_commands:
+    - sudo bash -c 'rm -rf /etc/security/limits.d; echo "* soft nofile 65535" >> /etc/security/limits.conf; echo "* hard nofile 65535" >> /etc/security/limits.conf;'
+    - sudo bash -c 'mkswap /dev/nvme1n1 && swapon /dev/nvme1n1'
+    # - sudo apt install swig -y
+    # - pip install -U 'boto3>=1.4.8'
+    # - pip install -U 'ray[default,rllib]==2.0.0'
+    # - pip install -U tensorflow==2.10.0 tensorflow-probability==0.17.0 torch==1.12.1 wandb 'pettingzoo[magent,sisl]==1.20.1' supersuit==3.5.0
+    # - pip install -U gym==0.22.0
+
+
+available_node_types:
+    ray.head.default:
+        resources: {"CPU": 1, "object-store-memory": 0}
+        node_config:
+            InstanceType: z1d.12xlarge
+            ImageId: ami-0c3a82216886b746f # My AMI with prerequisites installed
+    ray.worker.default:
+        min_workers: 0
+        max_workers: 16
+        resources: {"object-store-memory": 0}
+        node_config:
+            InstanceType: z1d.6xlarge
+            ImageId: ami-0c3a82216886b746f # My AMI with prerequisites installed
+    ray.worker.3xlarge:
+        min_workers: 0
+        max_workers: 16
+        resources: {"object-store-memory": 0}
+        node_config:
+            InstanceType: z1d.3xlarge
+            ImageId: ami-0c3a82216886b746f # My AMI with prerequisites installed
+    ray.worker.2xlarge:
+        min_workers: 0
+        max_workers: 16
+        resources: {"object-store-memory": 0}
+        node_config:
+            InstanceType: z1d.2xlarge
+            ImageId: ami-0c3a82216886b746f # My AMI with prerequisites installed
+    ray.worker.12xlarge:
+        min_workers: 0
+        max_workers: 16
+        resources: {"object-store-memory": 0}
+        node_config:
+            InstanceType: z1d.12xlarge
+            ImageId: ami-0c3a82216886b746f # My AMI with prerequisites installed
+
+# Specify the node type of the head node (as configured above).
+head_node_type: ray.head.default

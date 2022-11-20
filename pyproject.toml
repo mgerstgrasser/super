@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "suPER"
+version = "0.0.1"
+authors = [
+  { name="Matthias Gerstgrasser", email="matthias@seas.harvard.edu" },
+  { name="Tom Danino", email="tom.danino@campus.technion.ac.il" },
+  { name="Sarah Keren", email="sarahk@cs.technion.ac.il" },
+]
+description = "A package for selective multiagent PER (suPER) learning"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+dependencies = [
+    "ray[rllib]>=2.0.0",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools]
+packages = ["suPER"]
+
+[project.optional-dependencies]
+tests = [
+  'pytest >= 7.1.2',
+  'pytest-xdist[psutil] >= 2.5.0',
+]
+format = [
+  'black >= 22.6.0',
+  'isort >= 5.10.1',
+]
+experiments = [
+  "torch>=1.12.0",
+  "tensorflow>=2.9.1",
+  "wandb>=0.12.21",
+  "pettingzoo[atari,magent,sisl]>=1.20.1",
+  "supersuit>=3.5.0",
+]
+
+# Options for isort, black, etc.
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 255
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+]
+# addopts = "-m 'not slow'"
+addopts = "-n auto"

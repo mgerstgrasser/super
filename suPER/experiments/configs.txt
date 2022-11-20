@@ -1,0 +1,45 @@
+--suPER=False --suPER_bandwidth=0.0 --env=pursuit --experiment_group=ddqn  
+--suPER=True --suPER_bandwidth=0.1 --suPER_mode=quantile --env=pursuit --experiment_group=super_ddqn_quantile  
+--suPER=True --suPER_bandwidth=0.1 --suPER_mode=gaussian --env=pursuit --experiment_group=super_ddqn_gaussian  
+--suPER=True --suPER_bandwidth=0.1 --suPER_mode=stochastic --env=pursuit --experiment_group=super_ddqn_stochastic  
+--suPER=True --suPER_bandwidth=1.0 --env=pursuit --experiment_group=ddqn_shareall  
+--suPER=False --parameter_sharing=true --env=pursuit --experiment_group=ddqn_paramshare  
+--suPER=False --suPER_bandwidth=0.0 --env=pursuit_plaindqn --experiment_group=dqn  
+--suPER=True --suPER_bandwidth=0.1 --suPER_mode=quantile --env=pursuit_plaindqn --experiment_group=super_dqn_quantile  
+--suPER=True --suPER_bandwidth=0.1 --suPER_mode=gaussian --env=pursuit_plaindqn --experiment_group=super_dqn_gaussian  
+--suPER=True --suPER_bandwidth=0.1 --suPER_mode=stochastic --env=pursuit_plaindqn --experiment_group=super_dqn_stochastic  
+--suPER=True --suPER_bandwidth=1.0 --env=pursuit_plaindqn --experiment_group=dqn_shareall  
+--suPER=False --parameter_sharing=true --env=pursuit_plaindqn --experiment_group=dqn_paramshare  
+# ### --suPER=False --env=pursuit_maddpg --experiment_group=maddpg  
+--suPER=False --env=pursuit_qmix --experiment_group=qmix  
+# # # #  ----- Battle
+--suPER=False --suPER_bandwidth=0.0 --battle_advpursuit_against_pretrained --env=battle --team_sharing=blue --experiment_group=ddqn
+--suPER=True --suPER_bandwidth=0.1 --battle_advpursuit_against_pretrained --suPER_mode=quantile --env=battle --team_sharing=blue --experiment_group=super_ddqn_quantile
+--suPER=True --suPER_bandwidth=0.1 --battle_advpursuit_against_pretrained --suPER_mode=gaussian --env=battle --team_sharing=blue --experiment_group=super_ddqn_gaussian
+--suPER=True --suPER_bandwidth=0.1 --battle_advpursuit_against_pretrained --suPER_mode=stochastic --env=battle --team_sharing=blue --experiment_group=super_ddqn_stochastic
+--suPER=True --suPER_bandwidth=1.0 --battle_advpursuit_against_pretrained --env=battle --team_sharing=blue --experiment_group=ddqn_shareall
+--suPER=False --parameter_sharing=true --battle_advpursuit_against_pretrained --env=battle --team_sharing=blue --experiment_group=ddqn_paramshare
+--suPER=False --suPER_bandwidth=0.0 --env=battle_plaindqn --team_sharing=blue --experiment_group=dqn
+--suPER=True --suPER_bandwidth=0.1 --suPER_mode=quantile --env=battle_plaindqn --team_sharing=blue --experiment_group=super_dqn_quantile
+--suPER=True --suPER_bandwidth=0.1 --suPER_mode=gaussian --env=battle_plaindqn --team_sharing=blue --experiment_group=super_dqn_gaussian
+--suPER=True --suPER_bandwidth=0.1 --suPER_mode=stochastic --env=battle_plaindqn --team_sharing=blue --experiment_group=super_dqn_stochastic
+--suPER=True --suPER_bandwidth=1.0 --env=battle_plaindqn --team_sharing=blue --experiment_group=dqn_shareall
+--suPER=False --parameter_sharing=true --env=battle_plaindqn --team_sharing=blue --experiment_group=dqn_paramshare
+# ### --suPER=False --env=battle_maddpg --battle_advpursuit_against_pretrained --team_sharing=blue --experiment_group=maddpg
+--suPER=False --env=battle_qmix --battle_advpursuit_against_pretrained --team_sharing=blue --experiment_group=qmix
+# # # # #  ----- Adv Pursuit
+--suPER=False --suPER_bandwidth=0.0 --battle_advpursuit_against_pretrained --env=adversarial_pursuit --team_sharing=prey --experiment_group=ddqn
+--suPER=True --suPER_bandwidth=0.1 --battle_advpursuit_against_pretrained --suPER_mode=quantile --env=adversarial_pursuit --team_sharing=prey --experiment_group=super_ddqn_quantile
+--suPER=True --suPER_bandwidth=0.1 --battle_advpursuit_against_pretrained --suPER_mode=gaussian --env=adversarial_pursuit --team_sharing=prey --experiment_group=super_ddqn_gaussian
+--suPER=True --suPER_bandwidth=0.1 --battle_advpursuit_against_pretrained --suPER_mode=stochastic --env=adversarial_pursuit --team_sharing=prey --experiment_group=super_ddqn_stochastic
+--suPER=True --suPER_bandwidth=1.0 --battle_advpursuit_against_pretrained --env=adversarial_pursuit --team_sharing=prey --experiment_group=ddqn_shareall
+--suPER=False --parameter_sharing=true --env=adversarial_pursuit --battle_advpursuit_against_pretrained --team_sharing=prey --experiment_group=ddqn_paramshare
+--suPER=False --suPER_bandwidth=0.0 --env=adversarial_pursuit_plaindqn --team_sharing=prey --experiment_group=dqn
+--suPER=True --suPER_bandwidth=0.1 --suPER_mode=quantile --env=adversarial_pursuit_plaindqn --team_sharing=prey --experiment_group=super_dqn_quantile
+--suPER=True --suPER_bandwidth=0.1 --suPER_mode=gaussian --env=adversarial_pursuit_plaindqn --team_sharing=prey --experiment_group=super_dqn_gaussian
+--suPER=True --suPER_bandwidth=0.1 --suPER_mode=stochastic --env=adversarial_pursuit_plaindqn --team_sharing=prey --experiment_group=super_dqn_stochastic
+--suPER=True --suPER_bandwidth=1.0 --env=adversarial_pursuit_plaindqn --team_sharing=prey --experiment_group=dqn_shareall
+--suPER=False --parameter_sharing=true --env=adversarial_pursuit_plaindqn --team_sharing=prey --experiment_group=dqn_paramshare
+# ### --suPER=False --env=adversarial_pursuit_maddpg --battle_advpursuit_against_pretrained --team_sharing=prey --experiment_group=maddpg
+--suPER=False --env=adversarial_pursuit_qmix --battle_advpursuit_against_pretrained --team_sharing=prey --experiment_group=qmix
+# 
