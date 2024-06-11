@@ -1,8 +1,10 @@
-# suPER - Shared Multi-Agent Prioritized Experience Replay
+# SUPER - Shared Multi-Agent Prioritized Experience Relay
 
-Matthias Gerstgrasser, Tom Danino, Sarah Keren
+Matthias Gerstgrasser, Tom Danino, Sarah Keren, NeurIPS 2023
 
-[suPER](https://matthias.gerstgrasser.net/files/suPER-preprint.pdf) is a multi-agent DQN algorithm, sharing high td-error experiences among agents similarly to how experiences are sampled from the replay buffer in (single-agent) DQN with PER.
+[SUPER](https://arxiv.org/abs/2311.00865) is a multi-agent DQN algorithm, sharing high td-error experiences among agents similarly to how experiences are sampled from the replay buffer in (single-agent) DQN with PER.
+
+Update: We are in the process of contributing SUPER back into mainline RLLib: [https://github.com/ray-project/ray/pull/41079](https://github.com/ray-project/ray/pull/41079)
 
 ## Installation
 
@@ -14,7 +16,7 @@ To install, run:
 
 ## Usage
 
-suPER is built as a modified [RLlib DQN algorithm](https://docs.ray.io/en/latest/rllib/rllib-algorithms.html#dqn). In order to use suPER in your project, simply replace the `DQN` algorithm in your code with `suPERDQN` from our package. You can modify suPER settings using the `suPERDQNConfig.train()` method. For example:
+SUPER is built as a modified [RLlib DQN algorithm](https://docs.ray.io/en/latest/rllib/rllib-algorithms.html#dqn). In order to use SUPER in your project, simply replace the `DQN` algorithm in your code with `suPERDQN` from our package. You can modify suPER settings using the `suPERDQNConfig.train()` method. For example:
   
   ```python
   from suPER.core.trainers import suPERDQN, suPERDQNConfig
@@ -25,7 +27,15 @@ suPER is built as a modified [RLlib DQN algorithm](https://docs.ray.io/en/latest
 
 ## Citation
 
-Coming soon! Please check back here in January.
+```bibtex
+@article{gerstgrasser2024selectively,
+  title={Selectively Sharing Experiences Improves Multi-Agent Reinforcement Learning},
+  author={Gerstgrasser, Matthias and Danino, Tom and Keren, Sarah},
+  journal={Advances in Neural Information Processing Systems},
+  volume={36},
+  year={2024}
+}
+```
 
 ## Reproducing Paper Experiments
 
@@ -42,7 +52,7 @@ pip install -U tensorflow==2.10.0 tensorflow-probability==0.17.0 torch==1.12.1 w
 pip install -U gym==0.22.0
 ```
 
-### Running suPER Experiments
+### Running SUPER Experiments
 
 To run experiments, run `suPER/experiments/main.py` with the appropriate arguments. Set the environment to one of `pursuit`, `battle`, or `adversarial_pursuit`. You can set `--seed` and `--num_seeds` to run one or more specific seeds.
 
